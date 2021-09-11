@@ -1162,13 +1162,17 @@ class MDIconButton(BaseRoundButton, BasePressedButton):
         Sets the custom icon size if the value of the `user_font_size`
         attribute is not zero. Otherwise, the icon size is set to `(48, 48)`.
         """
-
+        """
+        having issue in android size bg size too high
+        """
+        print("here...")
         self.width = (
-            "48dp" if not self.user_font_size else dp(self.user_font_size + 23)
+            "48sp" if not self.user_font_size else self.user_font_size + sp(25)
         )
         self.height = (
-            "48dp" if not self.user_font_size else dp(self.user_font_size + 23)
+            "48sp" if not self.user_font_size else self.user_font_size + sp(25)
         )
+
 
     def update_md_bg_color(
         self, instance_theme_manager: ThemeManager, name_palette: str
